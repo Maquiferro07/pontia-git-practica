@@ -1,0 +1,20 @@
+
+name: Demo GitHub Actions
+
+'on':
+  workflow_dispatch:
+    inputs:
+      mensaje:
+        description: "Escribe un mensaje"
+        required: true
+        type: string
+
+jobs:
+  mostrar-mensaje:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje en consola
+        env:
+          MENSAJE: ${{ inputs.mensaje }}
+        run: echo "$MENSAJE"
